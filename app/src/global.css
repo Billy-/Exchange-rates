@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Rubik:900');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: responsive;
+}
+
+body { margin: 0; }
+
+.main {
+  max-width: 960px;
+  padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
