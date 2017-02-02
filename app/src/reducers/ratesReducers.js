@@ -12,7 +12,6 @@ const initialState = {
 }
 
 export default (state=initialState, action) => {
-    console.log('ratesReducer', state, action)
     switch (action.type) {
         case GET_INITIAL_DATA_SUBMIT:
         case GET_RATES_SUBMIT:

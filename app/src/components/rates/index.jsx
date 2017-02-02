@@ -30,18 +30,14 @@ let Rates = state => {
 Rates = CSSModules(Rates, styles)
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('mapStateToProps', state, ownProps)
     return { ...state.rates }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
-    console.log('mapDispatchToProps', ownProps)
     return {
         onChangeBase: e => {
-            console.log('onChangeBase', e.target.value)
             dispatch(changeBase(e.target.value))
         },
         onChangeDate: moment => {
-            console.log('onChangedate', moment)
             dispatch(changeDate(moment))
         }
     }
