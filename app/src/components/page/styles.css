@@ -1,6 +1,6 @@
 .container {
   max-width: 960px;
-  padding: 0 20px;
+  padding: 10px 20px;
   width: 100%;
   margin: 0 auto;
 }
@@ -9,6 +9,6 @@
   padding-bottom: 40px;
 }
 
-.main:after {
-  //content: '<a href="https://github.com/Billy-/Exchange-rates">made with <3</a>';
+.main p:first-of-type {
+  margin-top: 0;
 }

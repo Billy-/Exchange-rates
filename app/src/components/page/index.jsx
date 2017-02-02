@@ -7,9 +7,9 @@ import styles from './styles.css'
 let Page = React.createClass({
   render() {
     return <div>
-        <header styleName="container">
+        <header>
           <Header />
-          <Menu />
+          <Menu styleName="container"/>
         </header>
         <main styleName="container main">
           {this.props.children}

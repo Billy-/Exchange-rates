@@ -7,7 +7,7 @@ import styles from './style.css'
 const NavLink = props => {
     return <Link {...props} className={styles["menu-link"]} activeClassName={styles.active} />
 }
-const Menu = _ => <ul styleName="menu">
+const Menu = props => <ul {...props} styleName="menu">
     <li styleName="menu-item"><NavLink to="/about">About</NavLink></li>
     <li styleName="menu-item"><NavLink to="/rates">Get Rates</NavLink></li>
 </ul>
