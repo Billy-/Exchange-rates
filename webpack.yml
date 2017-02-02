@@ -1,0 +1,9 @@
+version: '2'
+services:
+    app:
+        build: .
+        image: billym/exchange-rates
+        volumes:
+            - './app/src:/app/src'
+            - './app/dist:/app/dist'
+        command: npm run webpack
