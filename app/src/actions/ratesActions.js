@@ -7,7 +7,7 @@ export const GET_INITIAL_DATA_FAILURE = 'GET_INITIAL_DATA_FAILURE'
 export const getInitialData = _ => {
     return dispatch => {
         dispatch({type: GET_INITIAL_DATA_SUBMIT})
-        return axios.get(`http://api.fixer.io/latest`)
+        return axios.get(`https://api.fixer.io/latest`)
             .then(response => {
                 dispatch({type: GET_INITIAL_DATA_SUCCESS, payload: response.data })
             })
@@ -24,7 +24,7 @@ export const GET_RATES_FAILURE = 'GET_RATES_FAILURE'
 export const getRates = (base, date) => {
     return dispatch => {
         dispatch({type: GET_RATES_SUBMIT})
-        return axios.get(`http://api.fixer.io/${date.format('YYYY-MM-DD')}`, { params: { base } })
+        return axios.get(`https://api.fixer.io/${date.format('YYYY-MM-DD')}`, { params: { base } })
             .then(response => {
                 dispatch({type: GET_RATES_SUCCESS, payload: response.data })
             })
