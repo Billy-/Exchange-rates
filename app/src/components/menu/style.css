@@ -1,6 +1,8 @@
 .menu {
-    padding: 10px 0;
+    padding: 10px 20px;
+    margin: 0;
     list-style: none;
+    background: #0074D9;
 }
 
 .menu-item {
@@ -13,7 +15,7 @@
 
 .menu-link {
     text-decoration: none;
-    color: #0b0b0b;
+    color: white;
 }
 
 .menu-link.active {

@@ -2,9 +2,8 @@
     margin: 0;
     padding: 20px;
     font-weight: 800;
-    font-style: italic;
-    font-size: responsive 24px 44px;
-    background: lightblue;
+    font-size: responsive 24px 68px;
+    background: #001f3f;
     text-decoration: none;
-    color: #0b0b0b;
+    color: #fff;
 }

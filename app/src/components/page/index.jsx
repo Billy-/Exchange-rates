@@ -9,7 +9,7 @@ let Page = React.createClass({
     return <div>
         <header>
           <Header />
-          <Menu styleName="container"/>
+          <Menu />
         </header>
         <main styleName="container main">
           {this.props.children}
