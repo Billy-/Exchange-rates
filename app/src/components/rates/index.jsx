@@ -1,35 +1,36 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
-import { connect } from 'react-redux' 
-import { Field, reduxForm } from 'redux-form'
-
+import { connect } from 'react-redux'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
+import RateTable from '../rateTable'
 //import styles from './style.css'
 let styles = {}
 
-import { getRates } from '../../actions/ratesActions'
+import datePickerStyles from 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
-import currencyCodes from './currencyCodes'
+Object.assign(styles, datePickerStyles)
+
+import { changeBase, changeDate } from '../../actions/ratesActions'
+
+const today = moment()
+const minDate = moment('19990101')
+console.log('minDate', minDate)
 
 //Rushing a bit here, could dynamically get this data, but harcoding for now.
-const currencies = currencyCodes.map(c => <option value={c} key={c}>{c}</option>)
-const years = [...Array(18).keys()].map(y => <option value={y+1999} key={y}>{y+1999}</option>)
-const months = [...Array(12).keys()].map(m => <option value={m+1} key={m}>{m+1}</option>)
-// Again, very rushed, much hardcoded. Every month has 31 days >.< I will use a datepicker + pull in correct data later.
-const days = [...Array(31).keys()].map(d => <option value={d+1} key={d}>{d+1}</option>)
 
 let Rates = state => {
-    const { onSubmit, handleSubmit, rates } = state
-    const submit = e => {
-        setTimeout(_ => handleSubmit(onSubmit))
-    }
-    return <form onSubmit={handleSubmit(onSubmit)}>
-        <Field name="base" component="select" onChange={submit}>{currencies}</Field>
-        <Field name="day" component="select" oChange={submit}>{days}</Field>
-        <Field name="month" component="select" onChange={submit}>{months}</Field>
-        <Field name="year" component="select" onChange={submit}>{years}</Field>
-    </form>
+    const { onChangeDate, onChangeBase, currencyCodes, base, date, rates, isLoading, errorMsg } = state
+    const currencies = currencyCodes.map(c => <option value={c} key={c}>{c}</option>)
+    return <div>
+        <select name="base" value={base} onChange={onChangeBase}>{currencies}</select>
+        <DatePicker selected={date} onChange={onChangeDate} minDate={minDate} maxDate={today} format='DD/MM/YYYY' showMonthDropdown showYearDropdown dropdownMode="select" />
+        { isLoading && <div>Loading</div> }
+        { errorMsg && <p>{errorMsg}</p> }
+        { Object.keys(rates).length > 0 && <RateTable rates={rates} /> }
+    </div>
 }
-Rates = reduxForm({form: 'rates'})(Rates)
+
 Rates = CSSModules(Rates, styles)
 
 const mapStateToProps = (state, ownProps) => {
@@ -39,9 +40,13 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     console.log('mapDispatchToProps', ownProps)
     return {
-        onSubmit: (data) => {
-            console.log('onSubmit', data)
-            dispatch(getRates(data))
+        onChangeBase: e => {
+            console.log('onChangeBase', e.target.value)
+            dispatch(changeBase(e.target.value))
+        },
+        onChangeDate: moment => {
+            console.log('onChangedate', moment)
+            dispatch(changeDate(moment))
         }
     }
 }

@@ -11,21 +11,22 @@ import About from './components/about.jsx'
 import Rates from './components/rates'
 import { NotFound } from './components/404.jsx'
 
+import { getInitialData } from './actions/ratesActions'
+
 import styles from './global.css'
 
-//import reducers from './reducers'
+import reducers from './reducers'
 
 const loggerMiddleware = createLogger()
 
 let appReducer = _ => null
 
-let reducers = combineReducers({app: appReducer})
 let store = createStore(reducers, applyMiddleware(thunkMiddleware, loggerMiddleware))
 
 render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="/" component={Page}>
+            <Route path="/" component={Page} onEnter={_ => store.dispatch(getInitialData())}>
                 <IndexRoute component={Home} />
                 <Route path="about" component={About} />
                 <Route path="rates" component={Rates} />
