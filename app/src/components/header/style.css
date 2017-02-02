@@ -1,7 +1,9 @@
 .header {
     margin: 0;
     padding: 20px;
-    font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: responsive 24px 44px;
     background: lightblue;
     text-decoration: none;
     color: #0b0b0b;

@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto|Rubik:900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800i');
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Open sans', sans-serif;
   font-size: responsive;
 }
 
