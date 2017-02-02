@@ -1,14 +1,21 @@
 .menu {
     padding: 10px 0;
     list-style: none;
-    text-align: center;
 }
 
 .menu-item {
     display: inline-block;
-    padding: 0 10px;
+    padding-right: 10px;
+}
+.menu-item:last-child {
+    padding-right: 0;
 }
 
 .menu-link {
     text-decoration: none;
+    color: #0b0b0b;
+}
+
+.menu-link.active {
+    text-decoration: underline;
 }

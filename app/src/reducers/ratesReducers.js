@@ -5,7 +5,7 @@ import { GET_INITIAL_DATA_SUBMIT, GET_INITIAL_DATA_SUCCESS, GET_INITIAL_DATA_FAI
 const initialState = {
     isLoading: false,
     errorMsg: null,
-    currencyCodes: [],
+    currencyCodes: ['EUR'],
     base: 'EUR',
     date: moment(),
     rates: []
@@ -16,7 +16,7 @@ export default (state=initialState, action) => {
     switch (action.type) {
         case GET_INITIAL_DATA_SUBMIT:
         case GET_RATES_SUBMIT:
-            return { ...state, isLoading: true, rates: [] }
+            return { ...state, isLoading: true }
         case GET_INITIAL_DATA_FAILURE:
         case GET_RATES_FAILURE:
             return { ...state, isLoading: false, errorMsg: action.payload }

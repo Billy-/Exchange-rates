@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import RateTable from '../rateTable'
-//import styles from './style.css'
-let styles = {}
+import styles from './style.css'
 
 import datePickerStyles from 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
@@ -15,17 +14,14 @@ import { changeBase, changeDate } from '../../actions/ratesActions'
 
 const today = moment()
 const minDate = moment('19990101')
-console.log('minDate', minDate)
-
-//Rushing a bit here, could dynamically get this data, but harcoding for now.
 
 let Rates = state => {
     const { onChangeDate, onChangeBase, currencyCodes, base, date, rates, isLoading, errorMsg } = state
     const currencies = currencyCodes.map(c => <option value={c} key={c}>{c}</option>)
-    return <div>
-        <select name="base" value={base} onChange={onChangeBase}>{currencies}</select>
-        <DatePicker selected={date} onChange={onChangeDate} minDate={minDate} maxDate={today} format='DD/MM/YYYY' showMonthDropdown showYearDropdown dropdownMode="select" />
-        { isLoading && <div>Loading</div> }
+    return <div styleName="widget">
+        <select className={styles.input} name="base" value={base} onChange={onChangeBase}>{currencies}</select>
+        <DatePicker className={styles.input} selected={date} onChange={onChangeDate} minDate={minDate} maxDate={today} format='DD/MM/YYYY' showMonthDropdown showYearDropdown dropdownMode="select" />
+        { isLoading && <div styleName="loading-icon">Loading</div> }
         { errorMsg && <p>{errorMsg}</p> }
         { Object.keys(rates).length > 0 && <RateTable rates={rates} /> }
     </div>

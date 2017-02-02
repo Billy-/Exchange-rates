@@ -1,0 +1,14 @@
+.container {
+  max-width: 960px;
+  padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main {
+  padding-bottom: 40px;
+}
+
+.main:after {
+  //content: '<a href="https://github.com/Billy-/Exchange-rates">made with <3</a>';
+}

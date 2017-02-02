@@ -10,11 +10,3 @@ html {
 }
 
 body { margin: 0; }
-
-.main {
-  max-width: 960px;
-  padding: 0 20px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}

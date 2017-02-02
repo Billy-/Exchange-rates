@@ -1,1 +1,0 @@
-export default ["EUR","AUD","CAD","CHF","CYP","CZK","DKK","EEK","GBP","HKD","HUF","ISK","JPY","KRW","LTL","LVL","MTL","NOK","NZD","PLN","ROL","SEK","SGD","SIT","SKK","TRL","USD","ZAR"]
