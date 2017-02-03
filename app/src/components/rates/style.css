@@ -1,5 +1,5 @@
 .widget {
-    max-width: 250px;
+    max-width: 350px;
     width: 100%;
     margin: 0 auto;
 }
@@ -21,4 +21,15 @@
 .loading-icon {
     display: none;
     /* It loads too fast, going to omit this */
+}
+
+@media (min-width: 800px) {
+    .widget {
+        max-width: none;
+        display: flex;
+        flex: 1 1 0;
+    }
+    .rates {
+        flex: 0 0 350px;
+    }
 }

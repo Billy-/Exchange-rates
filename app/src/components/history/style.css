@@ -1,0 +1,15 @@
+.loading {
+    display: none;
+    /* even this one loads too fast */
+}
+
+.history canvas {
+    width: 100% !important;
+}
+
+@media (min-width: 800px) {
+    .history {
+        flex: 1;
+        margin-left: 20px;
+    }
+}

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
 
 import ratesReducer from './reducers/ratesReducers'
-
-export default combineReducers({ rates: ratesReducer })
+import historyReducer from './reducers/historyReducers'
+export default combineReducers({ rates: ratesReducer, history: historyReducer })

@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux'
 import moment from 'moment'
 import { GET_INITIAL_DATA_SUBMIT, GET_INITIAL_DATA_SUCCESS, GET_INITIAL_DATA_FAILURE, GET_RATES_SUBMIT, GET_RATES_SUCCESS, GET_RATES_FAILURE, BASE_CHANGED, DATE_CHANGED } from '../actions/ratesActions'
+import { GET_HISTORY_SUBMIT } from '../actions/historyActions'
 
 const initialState = {
     isLoading: false,
     errorMsg: null,
     currencyCodes: ['EUR'],
     base: 'EUR',
+    comparing: 'USD',
     date: moment(),
     rates: []
 }
@@ -27,6 +29,8 @@ export default (state=initialState, action) => {
             return { ...state, base: action.payload }
         case DATE_CHANGED:
             return { ...state, date: action.payload }
+        case GET_HISTORY_SUBMIT:
+            return { ...state, comparing: action.payload }
         default:
             return { ...state }
     }

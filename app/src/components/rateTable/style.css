@@ -1,13 +1,38 @@
 .table {
-    width: 100%;
-    border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
 
 .table td, .table th {
-    padding: 5px;
-    text-align: left;
+	padding: 5px;
+	text-align: left;
 }
 
-.table tbody tr:nth-of-type(odd) {
-    background: #cecece;
+.table tbody tr.rate:nth-of-type(odd) {
+	background: #cecece;
+}
+.table tbody tr.history ~ tr.rate:nth-of-type(even) {
+	background: #cecece;
+}
+.table tbody tr.history ~ tr.rate:nth-of-type(odd) {
+	background: white;
+}
+.table tbody tr.history {
+	background: white;
+}
+.table tbody tr.rate.active {
+	background: #39CCCC;
+}
+.history canvas {
+	display: block;
+	margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+	.table {
+		flex: 0 0 350px;
+	}
+	.history td {
+		padding: 0;
+	}
 }

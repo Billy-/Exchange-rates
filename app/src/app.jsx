@@ -7,9 +7,9 @@ import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import Page from './components/page'
 import Home from './components/home'
-import About from './components/about.jsx'
+import About from './components/about'
 import Rates from './components/rates'
-import { NotFound } from './components/404.jsx'
+import { NotFound } from './components/404'
 
 import { getInitialData } from './actions/ratesActions'
 
