@@ -9,9 +9,10 @@ import History from '../history'
 
 let RateTable = state => {
     const { rates, comparing, onChangeHistory } = state
-    const keys = Object.keys(rates)
+    console.log(comparing)
+    const keys = Object.keys(rates).sort()
     const ci = keys.indexOf(comparing)
-    const tableContent = Object.keys(rates).sort().map(r => {
+    const tableContent = keys.map(r => {
         return <tr key={r} styleName={cx('rate', { active: comparing == r })} onClick={_ => onChangeHistory(r)}>
             <td>{r}</td>
             <td>{rates[r]}</td>
