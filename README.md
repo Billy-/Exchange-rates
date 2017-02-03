@@ -25,6 +25,7 @@ Note that the container is running in development mode, and you will need to wai
 
 - [x] Some styling
 - [x] Get historical data for rates
+- [ ] Have graph sticky-scroll in desktop view
 - [ ] Set up production configuration
 - [ ] Set up Hot Module Replacement
 
