@@ -29,9 +29,12 @@ export const getRates = (base, date) => {
         dispatch({type: GET_RATES_SUBMIT})
         return axios.get(`https://api.fixer.io/${date.format('YYYY-MM-DD')}`, { params: { base } })
             .then(response => {
-                dispatch({type: GET_RATES_SUCCESS, payload: response.data })
-                const { comparing } = getState().rates
-                dispatch(getHistory(response.data.base, comparing == response.data.base ? Object.keys(response.data.rates)[0] : comparing))
+                const { data } = response
+                const keys = Object.keys(data.rates)
+                dispatch({type: GET_RATES_SUCCESS, payload: data })
+                let { comparing } = getState().rates
+                comparing = (comparing == response.data.base || !keys[comparing]) ? keys[0] : comparing
+                dispatch(getHistory(response.data.base, comparing))
             })
             .catch(error => {
                 dispatch({type: GET_RATES_FAILURE, payload: error.response ? error.response.data.error : error })

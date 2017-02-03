@@ -24,7 +24,8 @@ export default (state=initialState, action) => {
         case GET_INITIAL_DATA_SUCCESS:
             return { ...state, isLoading: false, errorMsg: null, base: action.payload.base, currencyCodes: Object.keys(action.payload.rates).concat(action.payload.base).sort(), rates: action.payload.rates}
         case GET_RATES_SUCCESS:
-            return { ...state, isLoading: false, errorMsg: null, rates: action.payload.rates }
+            const currencyCodes = Object.keys(action.payload.rates).concat(action.payload.base).sort()
+            return { ...state, isLoading: false, errorMsg: null, currencyCodes, rates: action.payload.rates }
         case BASE_CHANGED:
             return { ...state, base: action.payload }
         case DATE_CHANGED:
