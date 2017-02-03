@@ -8,7 +8,7 @@ PostCSS + Rucksack + CSS Modules
 
 ### Usage
 
-[Now available on GitHub Pages!](https://billy-.github.io/Exchange-rates) - The route for the landing page won't work because react-router thinks you are trying to get `/Exchange-rates`
+[demo](https://exchange-rates.billym.co.uk/)
 
 You will only need Docker installed to run this
 
