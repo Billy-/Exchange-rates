@@ -13,7 +13,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        loader: 'babel-loader'
+        loaders: ['react-hot-loader', 'babel-loader']
       },
       {
         test: /\.css$/,
@@ -32,6 +32,7 @@ module.exports = {
     host: "0.0.0.0",
     inline: true,
     contentBase: "static",
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   }
 }
