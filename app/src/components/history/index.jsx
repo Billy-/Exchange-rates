@@ -14,7 +14,7 @@ let History = state => {
     return <div styleName="history">
         { isLoading && <p styleName="loading">Loading last 12 months</p> }
         { errorMsg && <p>{errorMsg}</p> }
-        { data && <Line data={data} options={{responsive: true}}/> }
+        { data && <Line data={data} options={{responsive: true, scales: { yAxes: [{ ticks: { callback: v => {console.log(v);return v.value.match(/^-?\d+(?:\.\d{0,2})?/)[0] }}}]}}}/> }
     </div>
 }
 
