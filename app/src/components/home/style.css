@@ -10,7 +10,6 @@
     opacity: 1;
     transition: opacity 350ms;
     z-index: 0;
-    line-height: responsive;
 }
 .button:after {
     content: '';
