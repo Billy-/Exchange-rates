@@ -9,7 +9,7 @@ export const GET_HISTORY_FAILURE = 'GET_HISTORY_FAILURE'
 export const getHistory = (base, compare) => {
     return dispatch => {
         dispatch({type: GET_HISTORY_SUBMIT, payload: compare})
-        const reqs = [...Array(12).keys()].map(e => moment().subtract(e, 'months'))
+        const reqs = [...Array(12).keys()].map(e => moment().subtract(e, 'months')).reverse()
         let responses = []
         let data = { labels: reqs.map(d => d.format('MMM')), datasets: [{data: [], fillColor: 'rgba(52,204,204,0.3)', borderColor: 'rgba(52,204,204,1)'}]}
         return Promise.map(reqs, d => {
