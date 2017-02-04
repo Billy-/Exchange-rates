@@ -1,0 +1,26 @@
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 6px 12px 8px;
+    border-radius: 4px;
+    background: #0074D9;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 350ms;
+    z-index: 0;
+    line-height: responsive;
+}
+.button:after {
+    content: '';
+    display: block;
+    position: absolute 0 100% 0 0;
+    background: rgba(0,0,0,0.15);
+    border-radius: 4px;
+    transition: right 450ms;
+    z-index: -1;
+}
+.button:hover:after {
+    right: 0;
+}
