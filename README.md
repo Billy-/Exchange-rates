@@ -8,7 +8,9 @@ PostCSS + Rucksack + CSS Modules
 
 ### Usage
 
-[demo](https://exchange-rates.billym.co.uk/)
+[demo](http://exchange-rates.billym.co.uk/)\*
+
+* fixer.io no longer supports https for free, so you may have issues loading the demo over https.
 
 You will only need Docker installed to run this
 
