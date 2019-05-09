@@ -20,7 +20,7 @@ export default (state=initialState, action) => {
             return { ...state, isLoading: true }
         case GET_INITIAL_DATA_FAILURE:
         case GET_RATES_FAILURE:
-            return { ...state, isLoading: false, errorMsg: action.payload }
+            return { ...state, isLoading: false, errorMsg: action.payload.message }
         case GET_INITIAL_DATA_SUCCESS:
             return { ...state, isLoading: false, errorMsg: null, base: action.payload.base, currencyCodes: Object.keys(action.payload.rates).concat(action.payload.base).sort(), rates: action.payload.rates}
         case GET_RATES_SUCCESS:

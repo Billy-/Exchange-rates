@@ -12,7 +12,7 @@ export default (state=initialState, action) => {
         case GET_HISTORY_SUBMIT:
             return { ...state, isLoading: true }
         case GET_HISTORY_FAILURE:
-            return { ...state, isLoading: false, errorMsg: action.payload }
+            return { ...state, isLoading: false, errorMsg: action.payload.message }
         case GET_HISTORY_SUCCESS:
             return { ...state, isLoading: false, errorMsg: null, data: action.payload }
         default:
