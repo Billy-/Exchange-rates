@@ -4,13 +4,18 @@ export const GET_INITIAL_DATA_SUBMIT = 'GET_INITIAL_DATA_SUBMIT'
 export const GET_INITIAL_DATA_SUCCESS = 'GET_INITIAL_DATA_SUCCESS'
 export const GET_INITIAL_DATA_FAILURE = 'GET_INITIAL_DATA_FAILURE'
 
+import access_key from './accessKey'
+
 import { getHistory } from './historyActions'
 
 export const getInitialData = _ => {
     return (dispatch, getState) => {
         dispatch({type: GET_INITIAL_DATA_SUBMIT})
-        return axios.get(`https://api.fixer.io/latest`)
+        return axios.get(`http://data.fixer.io/api/latest`, { params: { access_key } })
             .then(response => {
+                if (!response.data.success) {
+                    throw new Error(response.data.error.info)
+                }
                 dispatch({type: GET_INITIAL_DATA_SUCCESS, payload: response.data })
                 dispatch(getHistory(response.data.base, Object.keys(response.data.rates)[0]))
             })
@@ -27,9 +32,12 @@ export const GET_RATES_FAILURE = 'GET_RATES_FAILURE'
 export const getRates = (base, date) => {
     return (dispatch, getState) => {
         dispatch({type: GET_RATES_SUBMIT})
-        return axios.get(`https://api.fixer.io/${date.format('YYYY-MM-DD')}`, { params: { base } })
+        return axios.get(`http://data.fixer.io/api/${date.format('YYYY-MM-DD')}`, { params: { base, access_key } })
             .then(response => {
                 const { data } = response
+                if (!data.success) {
+                    throw new Error(data.error.info)
+                }
                 const keys = Object.keys(data.rates)
                 dispatch({type: GET_RATES_SUCCESS, payload: data })
                 let { comparing } = getState().rates
